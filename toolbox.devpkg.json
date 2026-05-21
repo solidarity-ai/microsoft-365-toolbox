@@ -67,6 +67,11 @@
       "idempotent": true
     },
     {
+      "entry_ts": "tools/drive-items.resolve-sharing-url.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
       "entry_ts": "tools/excel-workbooks.find.ts",
       "effect": "readOnly",
       "idempotent": true

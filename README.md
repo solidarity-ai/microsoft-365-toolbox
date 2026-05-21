@@ -17,6 +17,7 @@ The package includes the original read-only Microsoft 365 discovery tools plus a
 | `tools/site-list-items.list.ts` | `siteListItems.list` | `GET /sites/{site_id}/lists/{list_id}/items?$expand=fields` | `Sites.Read.All` |
 | `tools/site-drives.list.ts` | `siteDrives.list` | `GET /sites/{site_id}/drives` | `Files.Read.All` or tenant-approved SharePoint read access |
 | `tools/drive-items.get.ts` | `driveItems.get` | `GET /drives/{drive_id}/items/{item_id}` | `Files.Read.All` |
+| `tools/drive-items.resolve-sharing-url.ts` | `driveItems.resolveSharingUrl` | `GET /shares/{shareId}/driveItem` | `Files.Read.All` or sharing-link access |
 
 Excel V1 tools:
 

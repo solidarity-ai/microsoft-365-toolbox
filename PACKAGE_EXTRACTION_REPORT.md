@@ -40,6 +40,7 @@ github.com/solidarity-ai/microsoft-365-toolbox
 
 ## Required Excel Smoke Tools
 
+- `driveItems.resolveSharingUrl`
 - `excelSessions.create`
 - `excelWorkbooks.inventory`
 - `excelRanges.get`
