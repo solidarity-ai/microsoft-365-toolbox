@@ -71,12 +71,7 @@ function shareIdFromUrl(sharingUrl: string): string {
 }
 
 function isHttpUrl(value: string): boolean {
-  try {
-    const parsed = new URL(value);
-    return parsed.protocol === "https:" || parsed.protocol === "http:";
-  } catch {
-    return false;
-  }
+  return /^https?:\/\/[^\s/$.?#].[^\s]*$/i.test(value);
 }
 
 /**
