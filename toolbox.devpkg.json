@@ -1,0 +1,185 @@
+{
+  "module": "github.com/solidarity-ai/microsoft-365-toolbox",
+  "name": "microsoft-365",
+  "runtime": "typescript-sandbox",
+  "additionalTypeScriptGlobs": ["lib/*.ts"],
+  "allowed_hosts": ["graph.microsoft.com"],
+  "credentials": [
+    {
+      "name": "microsoft_graph",
+      "type": "oauth2",
+      "provider": {
+        "name": "microsoft",
+        "pkce": true,
+        "auth_params": {
+          "prompt": "select_account"
+        }
+      },
+      "scopes": [
+        "openid",
+        "profile",
+        "offline_access",
+        "User.Read",
+        "Sites.Read.All",
+        "Files.Read.All",
+        "Files.ReadWrite.All"
+      ],
+      "inject": {
+        "hosts": ["graph.microsoft.com"],
+        "method": "bearer_header"
+      }
+    }
+  ],
+  "tools": [
+    {
+      "entry_ts": "tools/me.get.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/sites.search.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/sites.get.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/site-lists.list.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/site-list-items.list.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/site-drives.list.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/drive-items.get.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/excel-workbooks.find.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/excel-workbooks.get.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/excel-sessions.create.ts",
+      "effect": "reversible",
+      "idempotent": false
+    },
+    {
+      "entry_ts": "tools/excel-sessions.close.ts",
+      "effect": "reversible",
+      "idempotent": false
+    },
+    {
+      "entry_ts": "tools/excel-workbooks.inventory.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/excel-workbooks.package-inspect.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/excel-workbooks.package-diff.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/excel-workbooks.risk-scan.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/excel-worksheets.list.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/excel-tables.list.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/excel-charts.list.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/excel-macros.inspect.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/excel-external-links.list.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/excel-ranges.used.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/excel-ranges.get.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/excel-ranges.update.ts",
+      "effect": "reversible",
+      "idempotent": false
+    },
+    {
+      "entry_ts": "tools/excel-ranges-validation.get.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/excel-ranges-conditional-formats.list.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/excel-formulas.scan.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/excel-formulas.find-hardcodes.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/excel-workbooks.calculate.ts",
+      "effect": "reversible",
+      "idempotent": false
+    },
+    {
+      "entry_ts": "tools/excel-errors.scan.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    },
+    {
+      "entry_ts": "tools/excel-diffs.compare-session-to-workbook.ts",
+      "effect": "readOnly",
+      "idempotent": true
+    }
+  ]
+}
